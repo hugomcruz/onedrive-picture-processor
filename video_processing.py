@@ -23,11 +23,6 @@
 '''
 
 import sys
-#sys.path.append('/Users/hcruz/Documents/development/python/ffprobe_hugo')
-#sys.path.append('/home/ec2-user/ffprobe_hugo')
-#sys.path.append('/root/dev/ffprobe_hugo')
-
-
 from ffprobe import FFProbe
 import datetime
 

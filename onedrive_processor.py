@@ -23,12 +23,6 @@
 '''
 
 import sys
-sys.path.append('/Users/hcruz/Documents/development/python/onedrive_simple_sdk/src')
-sys.path.append('/root/dev/onedrive_simple_sdk/src')
-sys.path.append('/home/ec2-user/onedrive_simple_sdk/src')
-
- 
-
 import os
 import time
 import json
