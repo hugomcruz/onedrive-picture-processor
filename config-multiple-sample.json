@@ -1,0 +1,25 @@
+{
+	"origins": [
+		{
+			"profile_name": "Profile 1",
+			"credentials": "credentials-user-1.json",
+			"source_path": "/Pictures/Camera Roll",
+			"destination_folder": "/user1"
+		},
+		{
+			"profile_name": "Profile 2",
+			"credentials": "credentials-user-2.json",
+			"source_path": "/Pictures/Camera Roll",
+			"destination_folder": "/user2"
+		}
+	],
+	"destination": {
+		"credentials": "credentials-destination.json",
+		"path": "/_test/media/mobile"
+	},
+	"constants": {
+		"screenshot_folder_name": "screenshots",
+		"images_folder_name": "images",
+		"videos_folder_name": "videos"
+	}
+}

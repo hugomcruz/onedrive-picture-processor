@@ -1,0 +1,20 @@
+{
+	"origins": [
+			{
+					"profile_name": "Onedrive Hugo",
+					"credentials": "credentials-hugo.json",
+					"source_path": "/Pictures/ana-inbound",
+					"destination_folder": "/ana"
+			}
+
+	],
+	"destination": {
+			"credentials": "credentials-thuy.json",
+			"path": "/nas-media-new/mobile"
+	},
+	"constants": {
+			"screenshot_folder_name": "screenshots",
+			"images_folder_name": "images",
+			"videos_folder_name": "videos"
+	}
+}
