@@ -83,16 +83,12 @@ def compare_files(onedrive_client, onedrive_path, local_file):
     
     try:
 
+        # Hash calculation in chuncks, as large files will exceed memory limits in small instances.
         with open(local_file, "rb") as f:
             file_hash = hashlib.sha256()
             while chunk := f.read(8192):
                 file_hash.update(chunk)
             local_file_hash = file_hash.hexdigest().upper()
-
-
-        #with open(local_file,"rb") as f:
-        #    bytes = f.read() # read entire file as bytes
-        #    local_file_hash = hashlib.sha256(bytes).hexdigest().upper()
 
         stat = os.stat(local_file)
         local_file_size = stat.st_size

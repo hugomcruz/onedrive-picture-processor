@@ -75,10 +75,6 @@ def process_image(filename):
             image.verify()
             result = image._getexif()
             
-            #print(result)
-            #original_time = result[36867]
-            #original_milliseconds = result[37521]
-            
             original_time = get_key_value(36867,result)
             original_milliseconds = get_key_value(37521,result)
 
@@ -113,11 +109,3 @@ def get_key_value(key, tags):
         return value
     except KeyError:
         return ""
-
-
-
-
-
-
-#result = process_image("/Users/hcruz/Downloads/2015-09-06 21.14.19.mov")
-#pretty_print(result)
