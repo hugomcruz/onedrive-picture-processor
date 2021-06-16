@@ -410,6 +410,7 @@ def process_video_file(onedrive_origin_client, source_file, onedrive_destination
     filename_lower = filename.lower()
 
     ## Trigger the file download
+    ### TODO - Error in the download might not be processed... CHECK THIS
     onedrive_origin_client.download(source_file,"/tmp")
 
     new_filename = video_filename(filename)
