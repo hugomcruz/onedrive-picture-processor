@@ -538,47 +538,48 @@ def process_onedrive_folder(onedrive_origin_client, source_path, onedrive_destin
 
 
 ######### MAIN PART ##########
-logging.basicConfig(format='%(asctime)s [%(levelname)s] [%(name)s] %(message)s', level=logging.INFO)
+def mainProcessor():
+    logging.basicConfig(format='%(asctime)s [%(levelname)s] [%(name)s] %(message)s', level=logging.INFO)
 
 
-logging.info("Started processing the Onedrive files...")
+    logging.info("Started processing the Onedrive files...")
 
-### Variables for global processing
-destination_credentials_file = ""
-destination_path = ""
-
-
-
-## Read configuration file
-config = read_configuration()
-
-destination_credentials_file = config["destination"]["credentials"]
-destination_path = config["destination"]["path"]
-destination_credentials = read_credentials(destination_credentials_file)
-
-origins = config["origins"]
-
-# Connect to the destination
-destination_client = onedrive_simple_sdk(destination_credentials["clientID"], destination_credentials["clientSecret"], destination_credentials["refreshToken"])
-logging.info("Connected to destination client.")
-
-#### Cycle through all the origins and process the files
-for origin in origins:
-    profile_name = origin["profile_name"]
-    origin_credentials_file = origin["credentials"]
-    source_path = origin["source_path"]
-    profile_destination_folder = origin["destination_folder"]
-
-    origin_credentials = read_credentials(origin_credentials_file)
-
-    ## Connecting to the origin
-    origin_client = onedrive_simple_sdk(origin_credentials["clientID"], origin_credentials["clientSecret"], origin_credentials["refreshToken"])
-    logging.info("Connected to origin client profile: %s", profile_name)
-  
-    process_onedrive_folder(origin_client, source_path, destination_client, destination_path + profile_destination_folder, config)
+    ### Variables for global processing
+    destination_credentials_file = ""
+    destination_path = ""
 
 
-logging.info("Completed processing the Onedrive files.")
+
+    ## Read configuration file
+    config = read_configuration()
+
+    destination_credentials_file = config["destination"]["credentials"]
+    destination_path = config["destination"]["path"]
+    destination_credentials = read_credentials(destination_credentials_file)
+
+    origins = config["origins"]
+
+    # Connect to the destination
+    destination_client = onedrive_simple_sdk(destination_credentials["clientID"], destination_credentials["clientSecret"], destination_credentials["refreshToken"])
+    logging.info("Connected to destination client.")
+
+    #### Cycle through all the origins and process the files
+    for origin in origins:
+        profile_name = origin["profile_name"]
+        origin_credentials_file = origin["credentials"]
+        source_path = origin["source_path"]
+        profile_destination_folder = origin["destination_folder"]
+
+        origin_credentials = read_credentials(origin_credentials_file)
+
+        ## Connecting to the origin
+        origin_client = onedrive_simple_sdk(origin_credentials["clientID"], origin_credentials["clientSecret"], origin_credentials["refreshToken"])
+        logging.info("Connected to origin client profile: %s", profile_name)
+    
+        process_onedrive_folder(origin_client, source_path, destination_client, destination_path + profile_destination_folder, config)
+
+
+    logging.info("Completed processing the Onedrive files.")
 
 
 
