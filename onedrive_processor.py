@@ -537,7 +537,7 @@ def process_onedrive_folder(onedrive_origin_client, source_path, onedrive_destin
 
 
 
-######### MAIN PART ##########
+######### MAIN FUNCTION ##########
 def mainProcessor():
     logging.basicConfig(format='%(asctime)s [%(levelname)s] [%(name)s] %(message)s', level=logging.INFO)
 
@@ -582,6 +582,7 @@ def mainProcessor():
     logging.info("Completed processing the Onedrive files.")
 
 
-
+##### MAIN PART ######
+mainProcessor()
 
 
