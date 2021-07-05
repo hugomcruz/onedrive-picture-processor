@@ -365,7 +365,7 @@ def process_image_file(onedrive_origin_client, source_file, onedrive_destination
         if([result["comparison"]]):
             #File is repeated
             logging.info("process_image_file(): File is repeated. Delete from the source. Maintain existing in target.")
-            #onedrive_origin_client.delete(source_file)
+            onedrive_origin_client.delete(source_file)
 
         else:
             ## Process again to append sequence to the file name
@@ -373,7 +373,7 @@ def process_image_file(onedrive_origin_client, source_file, onedrive_destination
     else:
         logging.error("process_image_file(): Error on the upload. Original file to remain in place. %s", result["message"])
     
-   # os.remove(processed_data.filename)
+    os.remove(processed_data.filename)
 
 
     
@@ -456,12 +456,12 @@ def process_video_file(onedrive_origin_client, source_file, onedrive_destination
             #File is repeated
             logging.info("process_video_file(): File is repeated. Delete from the source. Maintain existing in target.")
    
-            #onedrive_origin_client.delete(source_file)
+            onedrive_origin_client.delete(source_file)
 
     else:
         logging.error("process_video_file(): Error on the upload. Original file to remain in place. %s", result["message"])
     
-    #os.remove(new_filename)
+    os.remove(new_filename)
                     
 
 
