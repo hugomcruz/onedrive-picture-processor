@@ -50,16 +50,16 @@ def get_extension(filename):
     ext = basename.split('.')[-1]
     return ext.lower()
 
-def read_configuration():
-    with open('config.json') as json_file:
-        data = json.load(json_file)
-        return data
+def read_configuration(base_url):
+    response = urlopen(base_url + "/config.json")
+    data = json.load(response)
+    return data
 
 
 def read_credentials(filename):
-    with open(filename) as json_file:
-        data = json.load(json_file)
-        return data
+    response = urlopen(base_url + "/" + filename)
+    data = json.load(response)
+    return data
 
 
 
@@ -543,6 +543,11 @@ def mainProcessor():
 
 
     logging.info("Started processing the Onedrive files...")
+    
+    
+    ### Obtain the base config URL
+    base_url = os.environ.get('BASE_CONFIG_URL')
+    
 
     ### Variables for global processing
     destination_credentials_file = ""
@@ -551,7 +556,7 @@ def mainProcessor():
 
 
     ## Read configuration file
-    config = read_configuration()
+    config = read_configuration(base_url)
 
     destination_credentials_file = config["destination"]["credentials"]
     destination_path = config["destination"]["path"]
