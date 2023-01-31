@@ -57,7 +57,7 @@ def read_configuration(base_url):
     return data
 
 
-def read_credentials(filename):
+def read_credentials(base_url, filename):
     response = urlopen(base_url + "/" + filename)
     data = json.load(response)
     return data
@@ -561,7 +561,7 @@ def mainProcessor():
 
     destination_credentials_file = config["destination"]["credentials"]
     destination_path = config["destination"]["path"]
-    destination_credentials = read_credentials(destination_credentials_file)
+    destination_credentials = read_credentials(base_url, destination_credentials_file)
 
     origins = config["origins"]
 
