@@ -1,6 +1,6 @@
 '''
 ------------------------------------------------------------------------------
- Copyright (c) 2021 Hugo Cruz - hugo.m.cruz@gmail.com
+ Copyright (c) 2021 - 2023 Hugo Cruz - hugo.m.cruz@gmail.com
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -34,6 +34,7 @@ from onedrive import onedrive_simple_sdk
 from image_processing import process_image
 from datetime import timezone
 from video_processing import video_creation_datetime
+from urllib.request import urlopen
 
 
 ############## Classes - Data Objects ####################
