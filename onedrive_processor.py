@@ -576,7 +576,7 @@ def mainProcessor():
         source_path = origin["source_path"]
         profile_destination_folder = origin["destination_folder"]
 
-        origin_credentials = read_credentials(origin_credentials_file)
+        origin_credentials = read_credentials(base_url,origin_credentials_file)
 
         ## Connecting to the origin
         origin_client = onedrive_simple_sdk(origin_credentials["clientID"], origin_credentials["clientSecret"], origin_credentials["refreshToken"])
